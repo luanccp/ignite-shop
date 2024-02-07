@@ -1,40 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 Getting Started
 
-## Getting Started
+First, install all project dependencies:
 
-First, run the development server:
+```bash
+npm install
+```
+
+Second, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🏷️ Topics
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Next Image latest component
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### Server side render (SSR) concepts
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Static site generator (SSG) concepts
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+It makes a cache when the app is build. It's different from SSR that runs every time the user refreshes the page.
+The performance gets better:
 
-## Learn More
+- SSR +- 300ms
+- SSG +- 5ms
 
-To learn more about Next.js, take a look at the following resources:
+`revalidade` prop vai dar refresh no cache
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+how to make that? just use `getStaticProps` and next will understand that is a SSG and not a SSR.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+It's not a silver bullet because your app sometime will need live interactions so be caution.
 
-## Deploy on Vercel
+if you need to refresh your component every now and then but think SSG is worth it, just use `revalidate` prop inside the `getStaticProps`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### 📚 Extra commands
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+When need to build the project and test SSG
+
+```bash
+npm build
+```
+
+Run the project as would it be live
+
+```bash
+npm start
+```
