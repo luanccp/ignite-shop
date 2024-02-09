@@ -12,11 +12,20 @@ Second, run the development server:
 npm run dev
 ```
 
+_Remember to set your stripe env variables_
+
 ## 🏷️ Topics
 
-### Next Image latest component
+This project was an attempt to explore some of the Next features and some web development concepts.
 
 ### Server side render (SSR) concepts
+
+```mermaid
+graph TD;
+    Backend API-->Server side (Next);
+    Server side (Next)-->Frontend (client);
+    Frontend (client)-->Server side (Next);
+```
 
 ### Static site generator (SSG) concepts
 
@@ -26,13 +35,28 @@ The performance gets better:
 - SSR +- 300ms
 - SSG +- 5ms
 
-`revalidade` prop vai dar refresh no cache
+`revalidate` prop vai dar refresh no cache
 
 how to make that? just use `getStaticProps` and next will understand that is a SSG and not a SSR.
 
 It's not a silver bullet because your app sometime will need live interactions so be caution.
 
 if you need to refresh your component every now and then but think SSG is worth it, just use `revalidate` prop inside the `getStaticProps`.
+
+### Stitches
+
+It's a style library similar to `Styled-components`. It allows you write CSS-in-JS.
+
+### Link prefetch
+
+The `Link` from Nextjs has a prefetch mechanism. So when the user mouseover the link it will prefetch the next page. There are some cases that it could have some downsides. So we have a prefetch prop that could be handy.
+
+### Stripe integration
+
+In this project we could explore the connection together with some env variables from Nextjs.
+I did create products on the Stripe platform and fetch tem from the project site.
+I also used the `session` approach in order to have the checkout flow.
+I did explore the `expand` stripe approach to expand stripe object relations.
 
 #### 📚 Extra commands
 
