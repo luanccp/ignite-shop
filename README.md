@@ -20,12 +20,15 @@ This project was an attempt to explore some of the Next features and some web de
 
 ### Server side render (SSR) concepts
 
-```mermaid
-graph TD;
-    Backend API-->Server side (Next);
-    Server side (Next)-->Frontend (client);
-    Frontend (client)-->Server side (Next);
+Nextjs adds a layer between the API and the frontend client. This is layer is a server running Nodejs. So it's basically a server running in your frontend client.
+
+```text
+    Backend API--> Server side (Next) <--> Frontend (client)
 ```
+
+It opens multiple possibilities. It also increase the security somehow. Since it's harder to get data from a server than a frontend only code.
+
+So basically you can run request on the server side (this layer in between) avoiding consume user frontend clint resources.
 
 ### Static site generator (SSG) concepts
 
